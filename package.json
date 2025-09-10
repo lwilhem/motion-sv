@@ -21,15 +21,15 @@
     "dist"
   ],
   "scripts": {
-    "dev": "vite dev",
+    "prepare": "svelte-kit sync || echo ''",
+    "dev": "vite dev --port 3000",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
+    "prepack": "svelte-kit sync && svelte-package && publint",
     "build": "vite build && npm run prepack",
-    "preview": "vite preview",
-    "prepare": "svelte-kit sync || echo ''",
-    "prepack": "svelte-kit sync && svelte-package && publint"
+    "preview": "vite preview"
   },
   "svelte": "./dist/index.js",
   "peerDependencies": {
